@@ -1,9 +1,18 @@
+-- create
 CREATE TABLE DiasSemana
 (
 	DiaId		INT,
 	Descricao	VARCHAR(200)
 )
 
+CREATE TABLE HorariosTrabalho 
+(
+	CadastroId	INT,
+	DiaId		INT,
+	Horas		INT
+)
+
+-- insert
 INSERT INTO DiasSemana
 SELECT 1, 'Domingo' UNION ALL
 SELECT 2, 'Segunda' UNION ALL
@@ -12,13 +21,6 @@ SELECT 4, 'Quarta'	UNION ALL
 SELECT 5, 'Quinta'	UNION ALL
 SELECT 6, 'Sexta'	UNION ALL
 SELECT 7, 'Sábado'
-
-CREATE TABLE HorariosTrabalho 
-(
-	CadastroId	INT,
-	DiaId		INT,
-	Horas		INT
-)
 
 INSERT INTO HorariosTrabalho
 SELECT 1,2,8 UNION ALL
@@ -39,6 +41,7 @@ SELECT 3,5,5 UNION ALL
 SELECT 3,5,6 UNION ALL
 SELECT 3,6,6
 
+-- select 
 SELECT 
     dt.CadastroId,
     ds.Descricao AS DiaSemana,
